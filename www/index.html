@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>DataApp</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- container for all pages -->
+            <section data-role="page" id="people-list">
+                <h2>People <button class="btnAdd" id="addPeople">Add</button></h2>
+                <p class="details">
+                Here are all the people for which <em>you</em> buy gifts.
+                </p>
+                <ul data-role="listview" id="addPers">
+                    <!--
+                     list of items to be dynamically added
+                     single-tap to add gift for person through gifts-for-person page
+                     double-tap to remove person
+                     --> 
+                </ul>
+            </section>
+            <section data-role="page" id="gifts-for-person">
+                <h2>Gift Ideas 
+                    <button class="btnAdd" id = "addGiftPerson">Add</button>
+                    <button class="btnBack" id="backGiftPeople">Back</button>
+                </h2>
+                <p class="details">
+                Here are all the gifts ideas for <span>PERSON</span> for all occasions.
+                </p>
+                <ul data-role="listview" id = "add-gift-pers">
+                    <!--
+                     list of items to be dynamically added
+                     single-tap gift idea to toggle purchased state for gift
+                     double-tap gift idea to remove from list
+                     -->
+                    <li>Bear</li>
+                    <li>Flowers</li>
+                    <li>Shirt</li>
+                    <li>Car</li>
+                    <li>Money</li>
+                </ul>
+            </section>
+            
+            <section data-role="page" id="occasion-list">
+                <h2>Occasions 
+                    <button class="btnAdd" id = "addOccasion">Add</button></h2>
+                <p class="details">
+                Here is the list of occasions when <em>you</em> buy gifts.
+                </p>
+                <ul data-role="listview" id="addOcc">
+                   
+                </ul>
+            </section>
+             <section data-role="page" id="gifts-for-occasion">
+                <h2>Gift Ideas 
+                    <button class="btnAdd" id = "addGiftOccasion">Add</button>
+                    <button class="btnAdd" id = "backGiftOccasion">Back</button>
+                 </h2>
+                <p class="details">
+                Here are all the gift ideas for <span>OCCASION</span> for all people.
+                </p>
+                <ul data-role="listview" id="add-gift-occ">
+                     <li>Car</li>
+                    <li>Cake</li>
+                    <li>FLowers</li>
+                    <li>Kiss</li>
+                    <li>Costume</li>
+                    <li>Ring</li>
+                </ul>
+            </section>    
+        </div>
+        <!-- always display the overlay between a page and modal -->
+        <div data-role="overlay">&nbsp;</div>
+        
+        <!-- modal for adding an entry to person table -->
+        <div data-role="modal" id="add-new-person">
+            <h3>New person</h3>
+            <form>
+                <div class="formBox">
+                    <input type="text" id="new-person-name" value="" placeholder="" class=""/>
+                </div>
+                <div class="formBox">
+                    <input type="button" class="btnCancel" value="CANCEL" id="cancelPeopleButton" />
+                    <input type="button" class="btnSave" value="SAVE" id="savePeopleButton" />
+                </div>
+            </form>	
+        </div>
+        
+         <!-- modal for adding an entry to occasion table -->
+        <div data-role="modal" id="add-new-occasion">
+            <h3>New occasion</h3>
+            <form>
+                <div class="formBox">
+                    <input type="text" id="new-occ-name" value="" placeholder="" class=""/>
+                </div>
+                <div class="formBox">
+                    <input type="button" class="btnCancel" value="CANCEL" id="cancelOccButton" />
+                    <input type="button" class="btnSave" value="SAVE" id="saveOccButton"/>
+                </div>
+            </form>	
+        </div>
+        
+        
+        <!-- modal for adding an entry to gift for person.-->
+        <div data-role="modal" id="add-gift">
+            <h3>New gift for person</h3>
+            <form>
+                <div class="formBox">
+                    <select id="list-per-occ">
+                        <option value="0">Choose one</option>
+                        <!-- list of options built from person list or occasion list -->
+                    </select>
+                </div>
+                <div class="formBox">
+                    <input type="text" id="new-idea" value="" placeholder="" class=""/>
+                </div>
+                <div class="formBox">
+                    <input type="button" class="btnCancel" value="CANCEL" id="cancelNewGiftButton" />
+                    <input type="button" class="btnSave" value="SAVE" id="saveNewGiftButton" />
+                </div>
+            </form>	
+        </div>
+        <!-- modal for adding an entry to gift for occasion.-->
+        <div data-role="modal" id="add-gift-occasion-modal">
+            <h3>New gift for occasion</h3>
+            <form>
+                <div class="formBox">
+                    <select id="list-per-occ">
+                        <option value="0">Choose one</option>
+                        <!-- list of options built from person list or occasion list -->
+                    </select>
+                </div>
+                <div class="formBox">
+                    <input type="text" id="new-idea" value="" placeholder="" class=""/>
+                </div>
+                <div class="formBox">
+                    <input type="button" class="btnCancel" value="CANCEL" id="cancelNewOccButton" />
+                    <input type="button" class="btnSave" value="SAVE" id="saveNewOccButton" />
+                </div>
+            </form>	
+        </div>
+        
+        
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/hammer.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
